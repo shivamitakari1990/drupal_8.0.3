@@ -1,0 +1,23 @@
+custom_blocks.hello_world:
+  path: '/hello_world'
+  defaults:
+    _controller: '\Drupal\custom_blocks\Controller\CustomBlocksController::hello_world'
+    _title: 'Hello World Page'
+  requirements:
+    _permission: 'access content'
+custom_blocks.paths_with_arguments:
+  path: 'main/{first}/{second}'
+  defaults:
+    _controller: '\Drupal\custom_blocks\Controller\CustomBlocksController::paths_with_arguments'
+    _title: 'Paths with Arguments'
+  requirements:
+    _permission: 'access content'
+custom_blocks.paths_with_optional_arguments:
+  path: 'home/{first}/{second}'
+  defaults:
+    _controller: '\Drupal\custom_blocks\Controller\CustomBlocksController::paths_with_optional_arguments'
+    _title: 'Paths with Optional Arguments'
+    first: ''
+    second: ''
+  requirements:
+    _permission: 'access content'

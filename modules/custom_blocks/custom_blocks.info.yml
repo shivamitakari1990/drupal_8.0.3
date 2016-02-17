@@ -1,0 +1,13 @@
+name: Custom Blocks Module
+description: Add all the custom blocks in this module
+package: Custom
+
+type: module
+core: 8.x
+
+#dependencies:
+#  - block_content
+
+#configure: custom_blocks.settings
+
+hidden: false

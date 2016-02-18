@@ -44,3 +44,15 @@ custom_blocks.upcasting_entity_parameters:
     parameters:
       parent:
         type: 'entity:node'
+custom_blocks.set_get_save_node_field_value:
+  path: '/node/{node}/save'
+  defaults:
+    _controller: '\Drupal\custom_blocks\Controller\CustomBlocksController::set_get_save_node_field_value'
+    _title: 'Get, Set, Save node field values'
+  requirements:
+    _permission: 'access content'
+    node: \d+
+  options:
+    parameters:
+      parent:
+        type: 'entity:node'

@@ -1,0 +1,5 @@
+custom_blocks.menu_hello_world:
+  title: 'Hello World from Admin Menu'
+  description: 'Hello World with Content Access from Admin Menu'
+  route_name: custom_blocks.hello_world_content_access
+  parent: system.admin_reports

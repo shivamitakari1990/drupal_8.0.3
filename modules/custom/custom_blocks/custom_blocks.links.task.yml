@@ -1,0 +1,11 @@
+custom_blocks.hello_world_all_access:
+  title: 'Hello World'
+  route_name: custom_blocks.hello_world_all_access
+  base_route: custom_blocks.hello_world_all_access
+  weight: 1
+
+custom_blocks.hello_world_content_access:
+  title: 'Hello World'
+  route_name: custom_blocks.hello_world_content_access
+  base_route: custom_blocks.hello_world_all_access
+  weight: 2

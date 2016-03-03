@@ -11,6 +11,9 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\NodeInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Language\LanguageManagerInterface;
+
 /**
  * Implements basic concepts of Drupal 8.
  */
@@ -31,6 +34,13 @@ class CustomBlocksController extends ControllerBase {
     return array(
       '#markup' => $this->t('<p>Hello World with Content Access, How are you !</p>'),
     );
+  }
+
+  /**
+   * Returns a page title.
+   */
+  public function getTitle() {
+    return  'Hello World with Content Access';
   }
 
   /**
@@ -106,5 +116,41 @@ class CustomBlocksController extends ControllerBase {
     $return = array('name' => 'UBI', 'branch' => 'A T Road', 'PIN' => 781001, 'IFSC' => 'UBI0000004');
 
     return new JsonResponse($return);
+  }
+
+  /**
+   * Configuration Override System.
+   */
+  public function configuration_override_system() {
+    // ====== Global overries and avoiding overrides STARTS.
+
+    // Get system site name text, with global overrides.
+    //$message = \Drupal::config('system.site')->get('name');
+
+    // Get system site name text, without overrides.
+    //$message = \Drupal::config('system.site')->getOriginal('name', FALSE);
+
+    // Get system site maintenance message text, with global overrides.
+    //$message = \Drupal::config('system.maintenance')->get('message');
+
+    // Get system site maintenance message text, without overrides.
+    //$message = \Drupal::config('system.maintenance')->getOriginal('message', FALSE);
+
+    // ConfigFactory::getEditable, Returns an mutable (liable to change) configuration object for a given name.
+    // Should not be used for config that will have runtime effects. Therefore it is always loaded override free.
+    //$message = \Drupal::configFactory()->getEditable('system.site')->get('name');
+    //$message = \Drupal::configFactory()->getEditable('system.maintenance')->get('message');
+
+    // ====== LANGUAGE overries STARTS.
+
+    //To get the lanuage code:
+    //$message = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    //To get the language name:
+    $message = \Drupal::languageManager()->getCurrentLanguage()->getName();
+
+    return array(
+      '#markup' => $this->t($message),
+    );
   }
 }

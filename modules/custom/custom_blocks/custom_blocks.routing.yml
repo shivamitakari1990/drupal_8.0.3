@@ -2,9 +2,10 @@ custom_blocks.hello_world_content_access:
   path: '/hello_world_content_access'
   defaults:
     _controller: '\Drupal\custom_blocks\Controller\CustomBlocksController::hello_world_content_access'
-    _title: 'Hello World Page With Access - Access Content'
+    _title_callback: '\Drupal\custom_blocks\Controller\CustomBlocksController::getTitle'
   requirements:
     _permission: 'access content'
+    _user_is_logged_in: 'TRUE'
 
 custom_blocks.hello_world_all_access:
   path: '/hello_world_all_access'
@@ -111,3 +112,22 @@ custom_blocks.json_callback:
     _title: 'Json Callback'
   requirements:
     _permission: 'access content'
+
+# To Do : How to add multiple route_callbacks ?
+route_callbacks:
+  - '\Drupal\custom_blocks\Routing\DynamicRoutesWithArrayOfObjects::dynamic_routes'
+
+#route_callbacks:
+#  - '\Drupal\custom_blocks\Routing\DynamicRoutesWithCollectionObject::dynamic_routing'
+
+#route_callbacks:
+#  - 'custom_blocks.service:dynamic_route'
+
+custom_blocks.configuration_override_system:
+  path: '/configuration_override_system'
+  defaults:
+    _controller: '\Drupal\custom_blocks\Controller\CustomBlocksController::configuration_override_system'
+    _title: 'Configuration Override System'
+  requirements:
+    _permission: 'access content'
+

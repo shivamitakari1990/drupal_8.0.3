@@ -147,7 +147,24 @@ class CustomBlocksController extends ControllerBase {
     //$message = \Drupal::languageManager()->getCurrentLanguage()->getId();
 
     //To get the language name:
-    $message = \Drupal::languageManager()->getCurrentLanguage()->getName();
+    //$message = \Drupal::languageManager()->getCurrentLanguage()->getName();
+
+    //To get preferred language code.
+    //$user = \Drupal::currentUser();
+    //$message = $user->getPreferredLangcode();
+
+    // Load the current user.
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    //To get user mail.
+    //$message = $user->get('mail')->value;
+    //To get value of a field of user.
+    $message = $user->get('field_test_text')->value;
+
+    //To get user object from mail.
+    //$target_mail = 'dsaha2005@gmail.com';
+    //$target_user = user_load_by_mail($target_mail);
+    //$message = $target_user->get('uid')->value;
+    //$message = $target_user->get('name')->value;
 
     return array(
       '#markup' => $this->t($message),

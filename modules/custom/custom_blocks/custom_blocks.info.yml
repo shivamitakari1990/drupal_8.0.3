@@ -6,8 +6,15 @@ type: module
 core: 8.x
 
 #dependencies:
-#  - block_content
+#  - datetime:datetime
 
 #configure: custom_blocks.settings
 
 hidden: false
+
+# name, description are required. type is required and can be module, theme or profile. core is required.
+# dependencies => {project name as appears on drupal.org} :{machine name of module}
+# configure => If your module offers a configuration form, then you can specify the route to this form here.
+#              It will then show up as a link in the Extend page (/admin/modules) when the user expands the details.
+# hidden => Can hide modules containing tests or examples for developers. To make such modules visible:
+#           $settings['extension_discovery_scan_tests'] = TRUE

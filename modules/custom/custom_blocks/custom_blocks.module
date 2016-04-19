@@ -18,7 +18,3 @@ function custom_blocks_form_alter(&$form, FormStateInterface $form_state, $form_
     );
   }
 }
-
-function custom_blocks_menu_links_discovered_alter(&$links) {
-
-}

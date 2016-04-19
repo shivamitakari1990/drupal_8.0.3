@@ -3,3 +3,25 @@ custom_blocks.menu_hello_world:
   description: 'Hello World with Content Access from Admin Menu'
   route_name: custom_blocks.hello_world_content_access
   parent: system.admin_reports
+  weight: -100
+
+custom_blocks.menu_external_link:
+  title: 'External Link'
+  url: 'https://www.drupal.org'
+  menu_name: main
+  weight: 10
+  options:
+    attributes:
+      target: _blank
+
+# Routing is now handled by routing system.
+# Menu is now used for internal links defined by routes as admin configuration menus or for external links as part of system menus
+# based on menus listed under "admin/structure/menu".
+# menu_name =>  admin, account, main, tools, footer, original. Based on menus listed under "admin/structure/menu".
+# Note : Each menus under "admin/structure/menu" have corresponding blocks.
+
+# The "parent" information can be found in file : system.links.menu.yml
+
+# To Do : Creating new system menu (path "admin/structure/menu") through code.
+
+# Menu hooks : hook_menu_links_discovered_alter(array &$links), hook_menu_link_defaults_alter(array &$links)

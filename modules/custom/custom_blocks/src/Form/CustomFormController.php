@@ -10,16 +10,22 @@ use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\UrlHelper;
 
+# Form API : https://www.drupal.org/node/2117411
+
 # Any time you are creating a form in your site, you can write a use statement for Drupal\Core\Form\FormBase.
 # Any time you are creating a configuration form (aka an admin form) you also need to include a use statement for
 # Drupal\Core\Form\ConfigFormBase.
+# If had a form with a confirm step, like a "Are you sure you want to delete this?" intermediary step, you could extend use
+# Drupal\Core\Form\ConfirmFormBase.
+
+# FormInterface is the interface which gives the four methods described below. This interface is implemented by base classes.
 
 # getFormId is where we assign a unique id to the form being created
 # buildForm would be used to actually create the form
 # validateForm would be used to validate the form
 # submitForm would be used to actual submission of the form
 
-
+# To get the routings related to user, we can check user.routing.yml file. Example : user.page, user.role_add
 
 /**
  * Contribute form.
@@ -99,5 +105,6 @@ class CustomFormController extends FormBase {
     }*/
 
     drupal_set_message($this->t('Your phone number is @number', array('@number' => $form_state->getValue('phone_number'))));
+    //$form_state->setRedirect('user.role_add');
   }
 }

@@ -71,11 +71,19 @@ class CustomFormController extends FormBase {
       '#value' => $extra,
     );
     $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = array(
+    /*$form['actions']['submit'] = array(
       '#type' => 'submit',
       '#value' => $this->t('Save'),
       '#button_type' => 'primary',
+    );*/
+
+    $form['buttons']['submit'] = array(
+      '#type' => 'submit',
+      '#value' => t('Submit'),
+      // Call the formSubmit method on this class.
+      '#submit' => array('::formSubmit'),
     );
+
     return $form;
   }
 
@@ -106,5 +114,14 @@ class CustomFormController extends FormBase {
 
     drupal_set_message($this->t('Your phone number is @number', array('@number' => $form_state->getValue('phone_number'))));
     //$form_state->setRedirect('user.role_add');
+  }
+
+  /**
+   *  Custom submit handler.
+   */
+  public function formSubmit(array &$form, FormStateInterface $form_state) {
+    foreach ($form_state->getValues() as $key => $value) {
+      dsm($key . '=>' . $value);
+    }
   }
 }

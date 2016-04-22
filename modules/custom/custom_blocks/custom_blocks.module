@@ -21,6 +21,9 @@ function custom_blocks_form_alter(&$form, FormStateInterface $form_state, $form_
 
 /**
  * Implements hook_form_FORM_ID_alter().
+ *
+ *  Altering same form from multiple places not advisable.
+ *  To Do : Adding multiple validate / submit handlers from multiple modules and setting execution order as per need.
  */
 function custom_blocks_form_search_block_form_alter(&$form, &$form_state) {
   $form['fun_text']['#markup'] = t('Search Form Custom Help Text.');

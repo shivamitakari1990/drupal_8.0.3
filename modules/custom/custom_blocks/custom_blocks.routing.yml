@@ -131,3 +131,12 @@ custom_blocks.configuration_override_system:
   requirements:
     _permission: 'access content'
 
+custom_blocks.custom_form_hello_world:
+  path: '/custom_form/hello_world'
+  defaults:
+    _form: '\Drupal\custom_blocks\Form\CustomFormController'
+    _title: 'Hello World Custom Form'
+  requirements:
+    _permission: 'access content'
+    _user_is_logged_in: 'TRUE'
+

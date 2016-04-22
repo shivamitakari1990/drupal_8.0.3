@@ -14,6 +14,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 
+// Not needed to include to retrieve and display form
+// use Drupal\Core\Form\FormBuilderInterface;
+
 /**
  * Implements basic concepts of Drupal 8.
  */
@@ -31,9 +34,14 @@ class CustomBlocksController extends ControllerBase {
    * Defines function to display "Hello World" message with Content Access.
    */
   public function hello_world_content_access() {
-    return array(
+    // \Drupal::formBuilder()->getForm('Drupal\mymodule\Form\ExampleForm') would return the rendered HTML of the form defined by ExampleForm::buildForm()
+    $extra = '612-123-4567';
+    $form = \Drupal::formBuilder()->getForm('Drupal\custom_blocks\Form\CustomFormController', $extra);
+    return $form;
+
+    /*return array(
       '#markup' => $this->t('<p>Hello World with Content Access, How are you !</p>'),
-    );
+    );*/
   }
 
   /**

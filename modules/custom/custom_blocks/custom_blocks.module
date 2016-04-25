@@ -24,8 +24,15 @@ function custom_blocks_form_alter(&$form, FormStateInterface $form_state, $form_
  *
  *  Altering same form from multiple places not advisable.
  *  To Do : Adding multiple validate / submit handlers from multiple modules and setting execution order as per need.
+ *
+ *  Form alter hooks are called in the following order: hook_form_alter(), hook_form_BASE_FORM_ID_alter(), hook_form_FORM_ID_alter().
  */
-function custom_blocks_form_search_block_form_alter(&$form, &$form_state) {
+function custom_blocks_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   $form['fun_text']['#markup'] = t('Search Form Custom Help Text.');
 }
 
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+
+// Getting BASE_FORM_ID => Didn't work. To check again. => "http://www.bryanbraun.com/2013/08/17/using-hook-form-base-form-id-alter"

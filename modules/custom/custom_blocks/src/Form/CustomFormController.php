@@ -70,6 +70,11 @@ class CustomFormController extends FormBase {
       '#title' => $this->t('Additional phone number'),
       '#value' => $extra,
     );
+    $form['additional_phone_number2'] = array(
+      '#type' => 'tel',
+      '#title' => $this->t('Additional phone number2. New value.'),
+      '#value' => $extra,
+    );
     $form['actions']['#type'] = 'actions';
     /*$form['actions']['submit'] = array(
       '#type' => 'submit',

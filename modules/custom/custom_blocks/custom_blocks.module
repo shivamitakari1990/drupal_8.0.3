@@ -24,6 +24,7 @@ function custom_blocks_form_alter(&$form, FormStateInterface $form_state, $form_
  *
  *  Altering same form from multiple places not advisable.
  *  To Do : Adding multiple validate / submit handlers from multiple modules and setting execution order as per need.
+ *  Ref : http://drupal.stackexchange.com/questions/163607/alter-an-existing-form.
  *
  *  Form alter hooks are called in the following order: hook_form_alter(), hook_form_BASE_FORM_ID_alter(), hook_form_FORM_ID_alter().
  */
